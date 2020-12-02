@@ -3,8 +3,6 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
-	"strconv"
-	"strings"
 )
 
 // i don't know any of the syntax conventions
@@ -45,16 +43,10 @@ func find_trios(data []int) (int, int, int) {
 	return -1, -1, -1
 }
 
-func main() {
+func day01() {
 	inp, _ := ioutil.ReadFile("./day01.input")
 
-	raw_data := strings.Split(string(inp), "\r\n")
-	// convert string[] to int[]
-	var data = []int{}
-	for _, i := range raw_data {
-		j, _ := strconv.Atoi(i)
-		data = append(data, j)
-	}
+	data := GetIntInput(string(inp))
 
 	i, j := find_dups(data)
 	fmt.Printf("solution %d+%d = %d\t\tx %d\n", i, j, i+j, i*j)
