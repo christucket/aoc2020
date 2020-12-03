@@ -20,7 +20,7 @@ func GetPasswordRules(password string) (int, int, string) {
 func day02() {
 	inp, _ := ioutil.ReadFile("./day02.input")
 
-	data := GetStringInput(string(inp))
+	data := GetStringInput(inp)
 
 	sled_valid := 0
 	toboggan_valid := 0

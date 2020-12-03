@@ -5,8 +5,8 @@ import (
 	"strings"
 )
 
-func GetIntInput(raw_data string) []int {
-	split_data := strings.Split(raw_data, "\r\n")
+func GetIntInput(raw_data []byte) []int {
+	split_data := strings.Split(string(raw_data), "\r\n")
 	// convert string[] to int[]
 	var data = []int{}
 	for _, i := range split_data {
@@ -17,8 +17,8 @@ func GetIntInput(raw_data string) []int {
 	return data
 }
 
-func GetStringInput(raw_data string) []string {
-	split_data := strings.Split(raw_data, "\r\n")
+func GetStringInput(raw_data []byte) []string {
+	split_data := strings.Split(string(raw_data), "\r\n")
 
 	return split_data
 }

@@ -46,7 +46,7 @@ func find_trios(data []int) (int, int, int) {
 func day01() {
 	inp, _ := ioutil.ReadFile("./day01.input")
 
-	data := GetIntInput(string(inp))
+	data := GetIntInput(inp)
 
 	i, j := find_dups(data)
 	fmt.Printf("solution %d+%d = %d\t\tx %d\n", i, j, i+j, i*j)
