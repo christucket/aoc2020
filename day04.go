@@ -9,7 +9,7 @@ import (
 func day04() {
 	inp, _ := ioutil.ReadFile("./day04.input")
 
-	data := GetPassportInput(inp)
+	data := GetDoubleStringInput(inp)
 
 	count := 0
 	for _, raw_passport := range data {

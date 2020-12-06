@@ -23,7 +23,7 @@ func GetStringInput(raw_data []byte) []string {
 	return split_data
 }
 
-func GetPassportInput(raw_data []byte) []string {
+func GetDoubleStringInput(raw_data []byte) []string {
 	split_data := strings.Split(string(raw_data), "\r\n\r\n")
 
 	return split_data
