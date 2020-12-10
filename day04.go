@@ -7,7 +7,7 @@ import (
 
 // In your batch file, how many passports are valid
 func day04() {
-	inp, _ := ioutil.ReadFile("./day04.input")
+	inp, _ := ioutil.ReadFile("./inputs/day04.input")
 
 	data := GetDoubleStringInput(inp)
 

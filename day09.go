@@ -39,7 +39,7 @@ func GetInvalidNumSumRange(data []int, looking_for int) (int, int) {
 }
 
 func day09() {
-	inp, _ := ioutil.ReadFile("./day09.input")
+	inp, _ := ioutil.ReadFile("./inputs/day09.input")
 
 	data := GetIntInput(inp)
 

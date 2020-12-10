@@ -27,7 +27,7 @@ func CheckTreesWithSlope(data []string, dx int, dy int) int {
 // and following a slope of right 3 and down 1,
 // how many trees would you encounter
 func day03() {
-	inp, _ := ioutil.ReadFile("./day03.input")
+	inp, _ := ioutil.ReadFile("./inputs/day03.input")
 
 	data := GetStringInput(inp)
 

@@ -69,7 +69,7 @@ func RunProgram(instructions []Instruction, swap int) (int, int, string) {
 }
 
 func day08() {
-	inp, _ := ioutil.ReadFile("./day08.input")
+	inp, _ := ioutil.ReadFile("./inputs/day08.input")
 
 	data := GetStringInput(inp)
 

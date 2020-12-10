@@ -7,7 +7,7 @@ import (
 )
 
 func day06() {
-	inp, _ := ioutil.ReadFile("./day06.input")
+	inp, _ := ioutil.ReadFile("./inputs/day06.input")
 
 	data := GetDoubleStringInput(inp)
 

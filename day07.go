@@ -75,7 +75,7 @@ func GetTotalChildren(bag_map map[string]map[string]string, token_bag string) in
 
 // some kind of linked list thingy?
 func day07() {
-	inp, _ := ioutil.ReadFile("./day07.input")
+	inp, _ := ioutil.ReadFile("./inputs/day07.input")
 
 	data := GetStringInput(inp)
 

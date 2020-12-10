@@ -27,7 +27,7 @@ func ConvertToBits(seat string) int {
 }
 
 func day05() {
-	inp, _ := ioutil.ReadFile("./day05.input")
+	inp, _ := ioutil.ReadFile("./inputs/day05.input")
 
 	data := GetStringInput(inp)
 

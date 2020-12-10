@@ -44,7 +44,7 @@ func find_trios(data []int) (int, int, int) {
 }
 
 func day01() {
-	inp, _ := ioutil.ReadFile("./day01.input")
+	inp, _ := ioutil.ReadFile("./inputs/day01.input")
 
 	data := GetIntInput(inp)
 
