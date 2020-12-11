@@ -28,3 +28,15 @@ func GetDoubleStringInput(raw_data []byte) []string {
 
 	return split_data
 }
+
+func Get2DStringInput(raw_data []byte) [][]string {
+	split_data := strings.Split(string(raw_data), "\r\n")
+
+	var ret [][]string
+
+	for _, s := range split_data {
+		ret = append(ret, strings.Split(s, ""))
+	}
+
+	return ret
+}
