@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"strconv"
 	"strings"
 )
@@ -39,4 +40,10 @@ func Get2DStringInput(raw_data []byte) [][]string {
 	}
 
 	return ret
+}
+
+func DebugPrint(a ...interface{}) {
+	if debug {
+		fmt.Println(a...)
+	}
 }

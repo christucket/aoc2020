@@ -1,5 +1,15 @@
 package main
 
+import (
+	"os"
+)
+
+var debug bool
+
 func main() {
-	day17()
+	if len(os.Args) > 1 && os.Args[1] == "--debug" {
+		debug = true
+	}
+
+	day18()
 }
