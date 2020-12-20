@@ -42,6 +42,17 @@ func Get2DStringInput(raw_data []byte) [][]string {
 	return ret
 }
 
+func StringToIntArray(s string, sep string) []int {
+	ret := []int{}
+
+	for _, si := range strings.Split(s, sep) {
+		i, _ := strconv.Atoi(si)
+		ret = append(ret, i)
+	}
+
+	return ret
+}
+
 func DebugPrint(a ...interface{}) {
 	if debug {
 		fmt.Println(a...)
