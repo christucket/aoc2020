@@ -13,67 +13,46 @@ type Rule struct {
 	Letter string
 }
 
-func CheckInputWithRules(inp string, rules map[int]Rule, rule_num int) (bool, string) {
-	rule := rules[rule_num]
+func CheckInputWithRules(current_key int, next_keys []int, search string, index int, rules map[int]Rule) bool {
+	rule := rules[current_key]
 
 	if rule.Letter != "" {
-		if debug {
-			fmt.Printf("got a letter [%s] == %s\n", rule.Letter, inp)
+		if index >= len(search) {
+			return false
 		}
-		if len(inp) == 0 {
-			return false, "-1"
+
+		if rule.Letter == search[index:index+1] {
+			if len(next_keys) > 0 {
+				f0 := CheckInputWithRules(next_keys[0], next_keys[1:], search, index+1, rules)
+				if f0 {
+					return true
+				}
+			} else {
+				if index == len(search)-1 {
+					return true
+				}
+			}
+
 		}
-		return string(inp[0]) == rule.Letter, inp[1:]
+		return false
 	}
 
-	mixes := [][]int{rule.Mix1, rule.Mix2}
-	good := ""
-	for i, mix := range mixes {
-		if debug {
-			fmt.Printf("\n\ntrying mix[%d]: %v\n", i, mix)
-		}
-		if len(mix) > 0 {
-			checked_input := inp
-			matched := false
-
-			for _, k := range mix {
-				if debug {
-					fmt.Printf("checking if \"%s\" input matches rule [%d]: %v\n", checked_input, k, rules[k])
-				}
-				matched, checked_input = CheckInputWithRules(checked_input, rules, k)
-				if debug {
-					fmt.Printf("matched: %v, with rest: %s\n", matched, checked_input)
-				}
-				if !matched {
-					break
-				}
-			}
-
-			if debug {
-				fmt.Println("==got to end of loop with rest:", checked_input)
-			}
-			if matched && checked_input == "" {
-				return true, ""
-			}
-			if matched {
-				if debug {
-					fmt.Println("good ->", checked_input)
-				}
-				good = checked_input
-				return true, checked_input
-			}
-		}
+	f1 := CheckInputWithRules(rule.Mix1[0], append(rule.Mix1[1:], next_keys...), search, index, rules)
+	if f1 {
+		return true
 	}
 
-	if debug {
-		fmt.Println("===== at end of whole thing with good:", good)
+	if len(rule.Mix2) > 0 {
+		f2 := CheckInputWithRules(rule.Mix2[0], append(rule.Mix2[1:], next_keys...), search, index, rules)
+		if f2 {
+			return true
+		}
 	}
-
-	return false, good
+	return false
 }
 
 func day19() {
-	inp, _ := ioutil.ReadFile("./inputs/day19.sample")
+	inp, _ := ioutil.ReadFile("./inputs/day19.input")
 
 	data := GetStringInput(inp)
 
@@ -104,10 +83,9 @@ func day19() {
 	}
 
 	c := 0
-	for _, k := range inputs {
-		matched, rest := CheckInputWithRules(k, rules, 0)
-		fmt.Println("final [", k, "] matches:", matched, "rest:", rest)
-		if matched && rest == "" {
+	for _, ababab := range inputs {
+		f := CheckInputWithRules(rules[0].Mix1[0], rules[0].Mix1[1:], ababab, 0, rules)
+		if f {
 			c++
 		}
 	}
