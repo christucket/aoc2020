@@ -11,5 +11,5 @@ func main() {
 		debug = true
 	}
 
-	day24()
+	day25()
 }
